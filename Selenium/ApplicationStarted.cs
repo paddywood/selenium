@@ -5,15 +5,11 @@ namespace Selenium
     public class ApplicationStarted
     {
         private readonly Application _application;
-        private UiFactory _uiFactory;
-        public IWebDriver WebDriver { get; }
+        private IWebDriver WebDriver { get; }
 
-        public ApplicationStarted(string driver)
+        public ApplicationStarted(IWebDriver webDriver)
         {
-            _uiFactory = new UiFactory(driver);
-
-            WebDriver = _uiFactory.WebDriver;
-
+            WebDriver = webDriver;
             _application = CommandFactory.StandardLimitedCompanyApplication();
         }
 
@@ -22,16 +18,16 @@ namespace Selenium
             command?.Invoke(_application);
 
             if (_application.BusinessDetails.BusinessType == BusinessType.LimitedCompany)
-                _uiFactory.FindElementById("BusinessTypeLimited", 2000).Click();
+                WebDriver.FindElementById("BusinessTypeLimited", 2000).Click();
             else if (_application.BusinessDetails.BusinessType == BusinessType.SoleTrader)
-                _uiFactory.FindElementById("BusinessTypeSltr").Click();
+                WebDriver.FindElementById("BusinessTypeSltr").Click();
             else
-                _uiFactory.FindElementById("BusinessTypeTrust").Click();
+                WebDriver.FindElementById("BusinessTypeTrust").Click();
 
-            _uiFactory.FindElementById("BusinessName")
+            WebDriver.FindElementById("BusinessName")
                 .SendKeys(_application.BusinessDetails.BusinessName);
 
-            return new BusinessDetailsEntered(_application);
+            return new BusinessDetailsEntered(_application, WebDriver);
         }
     }
 }
