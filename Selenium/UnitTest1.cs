@@ -1,6 +1,7 @@
 using Xunit;
 using Xunit.Abstractions;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium;
 using System;
 using System.Reflection;
@@ -16,11 +17,11 @@ namespace Selenium
             var testMember = type.GetField("test", BindingFlags.Instance | BindingFlags.NonPublic);
             var test = (ITest)testMember.GetValue(helper);
 
-            var driverService = ChromeDriverService.CreateDefaultService(@".");
+            var driverService = EdgeDriverService.CreateDefaultService(@".");
 
-            WebDriver = new ChromeDriver(driverService);
+            WebDriver = new EdgeDriver(driverService);
 
-            WebDriver.Manage().Window.Maximize();
+            //WebDriver.Manage().Window.Maximize();
         }
 
         public void Dispose()
