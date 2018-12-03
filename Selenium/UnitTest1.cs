@@ -16,12 +16,15 @@ namespace Selenium
             var type = helper.GetType();
             var testMember = type.GetField("test", BindingFlags.Instance | BindingFlags.NonPublic);
             var test = (ITest)testMember.GetValue(helper);
+            var browser = test.TestCase.TestMethodArguments[0].ToString();
+            //var driverService = EdgeDriverService.CreateDefaultService(@".");
 
-            var driverService = EdgeDriverService.CreateDefaultService(@".");
+            if (browser == "Chrome")
+                WebDriver = new ChromeDriver(".");
+            else
+                WebDriver = new EdgeDriver(".");
 
-            WebDriver = new EdgeDriver(driverService);
-
-            //WebDriver.Manage().Window.Maximize();
+            WebDriver.Manage().Window.Maximize();
         }
 
         public void Dispose()
@@ -43,8 +46,8 @@ namespace Selenium
         }
         [Theory]
         [InlineData("Chrome")]
-        [InlineData("IE")]
-        public void TestMethod1(string driver)
+        [InlineData("Edge")]
+        public void TestMethod1(string browser)
         {            
             var scenario = new ApplicationStarted(WebDriver);
 
