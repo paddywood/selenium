@@ -28,7 +28,7 @@ namespace Selenium
 
         private static IWebElement FindElement(Func<IWebDriver, IWebElement> eleFunc, IWebDriver webDriver, int timeout)
         {
-            var wait = new WebDriverWait(webDriver, new TimeSpan(timeout));
+            var wait = new WebDriverWait(webDriver, new TimeSpan(0, 0, 0, 0, timeout));
 
             var element = wait.Until(eleFunc);
 
