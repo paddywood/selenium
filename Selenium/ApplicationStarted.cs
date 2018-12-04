@@ -2,32 +2,30 @@
 using OpenQA.Selenium;
 namespace Selenium
 {
-    public class ApplicationStarted
+    public class ApplicationStarted : Scenario
     {
-        private readonly Application _application;
-        private IWebDriver WebDriver { get; }
-
-        public ApplicationStarted(IWebDriver webDriver)
+        public ApplicationStarted(Application app, IWebDriver webDriver) : base(app, webDriver)
         {
-            WebDriver = webDriver;
-            _application = CommandFactory.StandardLimitedCompanyApplication();
+
         }
 
-        public BusinessDetailsEntered An_application_has_been_started(Action<Application> command = null)
+        public BusinessDetailsEntered The_business_details_have_been_entered(Action<BusinessDetails> command = null)
         {
-            command?.Invoke(_application);
+            var businessDetails = CommandFactory.BusinessDetails();
 
-            if (_application.BusinessDetails.BusinessType == BusinessType.LimitedCompany)
+            command?.Invoke(businessDetails);
+
+            if (businessDetails.BusinessType == BusinessType.LimitedCompany)
                 WebDriver.FindElementById("BusinessTypeLimited", 2000).Click();
-            else if (_application.BusinessDetails.BusinessType == BusinessType.SoleTrader)
+            else if (businessDetails.BusinessType == BusinessType.SoleTrader)
                 WebDriver.FindElementById("BusinessTypeSltr").Click();
             else
                 WebDriver.FindElementById("BusinessTypeTrust").Click();
 
             WebDriver.FindElementById("BusinessName")
-                .SendKeys(_application.BusinessDetails.BusinessName);
+                .SendKeys(businessDetails.BusinessName);
 
-            return new BusinessDetailsEntered(_application, WebDriver);
+            return new BusinessDetailsEntered(Application, WebDriver);
         }
     }
 }

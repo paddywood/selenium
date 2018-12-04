@@ -3,18 +3,17 @@ using OpenQA.Selenium;
 
 namespace Selenium
 {
-    public class BusinessDetailsEntered
+    public class BusinessDetailsEntered : Scenario
     {
-        private Application _application;
-
-        public BusinessDetailsEntered(Application application, IWebDriver webDriver)
+        public BusinessDetailsEntered(Application application, IWebDriver webDriver) : base(application, webDriver)
         {
-            _application = application;
         }
 
-        public OfferDetailsEntered The_business_details_have_been_entered(Action<BusinessDetails> command = null)
+        public OfferDetailsEntered The_offer_details_have_been_entered(Action<OfferDetails> command = null)
         {
-            command?.Invoke(_application.BusinessDetails);
+            var offer = CommandFactory.OfferDetails();
+
+            command?.Invoke(offer);
 
             return new OfferDetailsEntered();
         }

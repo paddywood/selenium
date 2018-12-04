@@ -7,8 +7,30 @@ using System;
 using System.Reflection;
 namespace Selenium
 {
+    public class Scenario
+    {
+        public IWebDriver WebDriver { get; }
+        public Application Application { get; }
+
+        public Scenario(Application application, IWebDriver webDriver)
+        {
+            WebDriver = webDriver;
+            Application = application;
+        }
+
+        public ApplicationStarted An_application_has_been_started(Action<Application> setupCommand = null)
+        {
+            setupCommand?.Invoke(Application);
+
+            // do web driver stuff here ....
+
+            return new ApplicationStarted(Application, WebDriver);
+
+        }
+    }
     public abstract class SeleniumTest : IDisposable
     {
+        public Scenario If { get; }
         public IWebDriver WebDriver { get; set; }
 
         public SeleniumTest(ITestOutputHelper helper)
@@ -23,6 +45,8 @@ namespace Selenium
                 WebDriver = new ChromeDriver(".");
             else
                 WebDriver = new EdgeDriver(".");
+
+            If = new Scenario(CommandFactory.StandardLimitedCompanyApplication(), WebDriver);
 
             WebDriver.Manage().Window.Maximize();
         }
@@ -48,8 +72,8 @@ namespace Selenium
         [InlineData("Chrome")]
         [InlineData("Edge")]
         public void TestMethod1(string browser)
-        {            
-            var scenario = new ApplicationStarted(WebDriver);
+        {
+            If.An_application_has_been_started();
 
             WebDriver.Url = "https://stuff.co.nz";
 

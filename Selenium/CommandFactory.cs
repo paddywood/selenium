@@ -9,14 +9,23 @@
                 ApplicantEmail = "paddy@paddy.com",
                 ApplicantName = "paddy wood",
                 WouldLikeOffers = true,
-                BusinessDetails = new BusinessDetails
-                {
-                    BusinessName = "Paddy Business",
-                    BusinessAddress = "Bussiness Address",
-                    BusinessType = BusinessType.LimitedCompany
-                },
                 OfferDetails = new OfferDetails()
             };
+        }
+
+        public static BusinessDetails BusinessDetails()
+        {
+            return new BusinessDetails
+            {
+                BusinessName = "Paddy Business",
+                BusinessAddress = "Bussiness Address",
+                BusinessType = BusinessType.LimitedCompany
+            };
+        }
+
+        public static OfferDetails OfferDetails()
+        {
+            return new OfferDetails();
         }
     }
 }
