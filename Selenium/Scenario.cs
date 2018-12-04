@@ -17,7 +17,15 @@ namespace Selenium
         {
             setupCommand?.Invoke(Application);
 
-            // do web driver stuff here ....
+            WebDriver.FindElementById("Name").SendKeys(Application.ApplicantName);
+            WebDriver.FindElementById("Email").SendKeys(Application.ApplicantEmail);
+
+            if (Application.WouldLikeOffers)
+                WebDriver.FindElementById("checkbox").Click();
+
+            WebDriver.FindElementById("button").Click();
+
+            WebDriver.FindElementById("letsdothis").Click();
 
             return new ApplicationStarted(Application, WebDriver);
 

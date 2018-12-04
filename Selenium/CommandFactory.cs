@@ -8,8 +8,7 @@
             {
                 ApplicantEmail = "paddy@paddy.com",
                 ApplicantName = "paddy wood",
-                WouldLikeOffers = true,
-                OfferDetails = new OfferDetails()
+                WouldLikeOffers = true
             };
         }
 
