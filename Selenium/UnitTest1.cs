@@ -73,9 +73,13 @@ namespace Selenium
         [InlineData("Edge")]
         public void TestMethod1(string browser)
         {
-            If.An_application_has_been_started();
-
             WebDriver.Url = "https://stuff.co.nz";
+
+            If
+                .An_application_has_been_started()
+                .The_business_details_have_been_entered()
+                .The_offer_details_have_been_entered();
+
 
             //scenario
             //    .An_application_has_been_started()

@@ -15,6 +15,9 @@ namespace Selenium
 
             command?.Invoke(businessDetails);
 
+            Application.BusinessDetails = businessDetails;
+
+            /*
             if (businessDetails.BusinessType == BusinessType.LimitedCompany)
                 WebDriver.FindElementById("BusinessTypeLimited", 2000).Click();
             else if (businessDetails.BusinessType == BusinessType.SoleTrader)
@@ -24,7 +27,7 @@ namespace Selenium
 
             WebDriver.FindElementById("BusinessName")
                 .SendKeys(businessDetails.BusinessName);
-
+            */
             return new BusinessDetailsEntered(Application, WebDriver);
         }
     }

@@ -15,7 +15,9 @@ namespace Selenium
 
             command?.Invoke(offer);
 
-            return new OfferDetailsEntered();
+            Application.OfferDetails = offer;
+
+            return new OfferDetailsEntered(Application, WebDriver);
         }
     }
 }
