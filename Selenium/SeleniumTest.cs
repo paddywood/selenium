@@ -16,10 +16,9 @@ namespace Selenium
             var type = helper.GetType();
             var testMember = type.GetField("test", BindingFlags.Instance | BindingFlags.NonPublic);
             var test = (ITest)testMember.GetValue(helper);
-            var browser = test.TestCase.TestMethodArguments[0].ToString();
-            //var driverService = EdgeDriverService.CreateDefaultService(@".");
+            var browser = test.TestCase.TestMethodArguments?[0].ToString();
 
-            if (browser == "Chrome")
+            if (string.IsNullOrEmpty(browser) || browser == "Chrome")
                 WebDriver = new ChromeDriver(".");
             else
                 WebDriver = new EdgeDriver(".");

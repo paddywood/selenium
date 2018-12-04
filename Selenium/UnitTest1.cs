@@ -8,10 +8,11 @@ namespace Selenium
         {
         }
 
-        [Theory]
-        [InlineData("Chrome")]
+        [Fact]
+        //[Theory]
+        //[InlineData("Chrome")]
         //[InlineData("Edge")]
-        public void TestMethod1(string browser)
+        public void TestMethod1()
         {
             WebDriver.Url = "https://stuff.co.nz";
 
