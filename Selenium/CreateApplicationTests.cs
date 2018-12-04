@@ -2,9 +2,9 @@ using Xunit;
 using Xunit.Abstractions;
 namespace Selenium
 {
-    public class UnitTest1 : SeleniumTest
+    public class CreateApplicationTests : SeleniumTest
     { 
-        public UnitTest1(ITestOutputHelper helper) : base(helper)
+        public CreateApplicationTests(ITestOutputHelper helper) : base(helper)
         {
         }
 
@@ -12,7 +12,7 @@ namespace Selenium
         //[Theory]
         //[InlineData("Chrome")]
         //[InlineData("Edge")]
-        public void TestMethod1()
+        public void Create_a_standard_approved_application()
         {
             WebDriver.Url = "https://stuff.co.nz";
 

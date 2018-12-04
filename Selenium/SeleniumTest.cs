@@ -23,7 +23,7 @@ namespace Selenium
             else
                 WebDriver = new EdgeDriver(".");
 
-            If = new Scenario(CommandFactory.StandardLimitedCompanyApplication(), WebDriver);
+            If = new Scenario(CommandFactory.ValidApplication(), WebDriver);
 
             WebDriver.Manage().Window.Maximize();
         }

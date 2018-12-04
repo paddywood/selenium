@@ -2,7 +2,7 @@
 {
     public static class CommandFactory
     {
-        public static Application StandardLimitedCompanyApplication()
+        public static Application ValidApplication()
         {
             return new Application
             {
@@ -24,7 +24,10 @@
 
         public static OfferDetails OfferDetails()
         {
-            return new OfferDetails();
+            return new OfferDetails
+            {
+                MonthlySpend = 10000
+            };
         }
     }
 }
