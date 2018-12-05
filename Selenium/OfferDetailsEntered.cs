@@ -22,9 +22,11 @@ namespace Selenium
                 WebDriver.FindElementByName("IsNotDirectorButton", sleepyTime: 500).Click();
 
 
-            WebDriver.FindElementByName("LegalName", sleepyTime: 500).SendKeys(Application.CreditCheckDetails.LegalName);
+            WebDriver.FindElementByName("LegalName").SendKeys(Application.CreditCheckDetails.LegalName);
 
             WebDriver.FindElementByCssSelector("#legal-name > div > div > div.flex.no-grow > div > div > button", sleepyTime: 500).Click();
+
+            WebDriver.FindElementByName(Application.CreditCheckDetails.Gender.ToString(), sleepyTime: 500).Click();
 
             return new CreditCheckDetailsEntered(Application, WebDriver);
         }

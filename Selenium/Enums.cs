@@ -8,4 +8,11 @@
         Partnership,
         Other
     }
+
+    public enum Gender
+    {
+        MaleButton,
+        FemaleButton,
+        UndisclosedButton
+    }
 }
