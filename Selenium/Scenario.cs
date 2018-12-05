@@ -17,15 +17,15 @@ namespace Selenium
         {
             setupCommand?.Invoke(Application);
 
-            WebDriver.FindElementById("Name").SendKeys(Application.ApplicantName);
-            WebDriver.FindElementById("Email").SendKeys(Application.ApplicantEmail);
+            WebDriver.FindElementByName("ApplicantName").SendKeys(Application.ApplicantName);
+            WebDriver.FindElementByName("ApplicantEmail").SendKeys(Application.ApplicantEmail);
 
-            if (Application.WouldLikeOffers)
-                WebDriver.FindElementById("checkbox").Click();
+            if (Application.ApplicantAcceptedUpdates)
+                WebDriver.FindElementByName("ApplicantAcceptedUpdates").Click();
 
-            WebDriver.FindElementById("button").Click();
+            WebDriver.FindElementByName("GetStartedButton").Click();
 
-            WebDriver.FindElementById("letsdothis").Click();
+            WebDriver.FindElementByCssSelector("#app > div > main > div > div > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(5) > div > button").Click();
 
             return new ApplicationStarted(Application, WebDriver);
 

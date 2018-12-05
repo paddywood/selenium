@@ -5,5 +5,6 @@
         public BusinessType BusinessType { get; set; }
         public string BusinessName { get; set; }
         public string BusinessAddress { get; set; }
+        public int? MonthlySpend { get; set; }
     }
 }

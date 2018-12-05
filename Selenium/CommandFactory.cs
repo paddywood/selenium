@@ -8,7 +8,7 @@
             {
                 ApplicantEmail = "paddy@paddy.com",
                 ApplicantName = "paddy wood",
-                WouldLikeOffers = true
+                ApplicantAcceptedUpdates = true
             };
         }
 
@@ -17,8 +17,9 @@
             return new BusinessDetails
             {
                 BusinessName = "Paddy Business",
-                BusinessAddress = "Bussiness Address",
-                BusinessType = BusinessType.LimitedCompany
+                BusinessAddress = "Business Address",
+                BusinessType = BusinessType.LimitedCompany,
+                MonthlySpend = 10000
             };
         }
 
@@ -28,6 +29,11 @@
             {
                 MonthlySpend = 10000
             };
+        }
+
+        public static CreditCheckDetails CreditCheckDetails()
+        {
+            return new CreditCheckDetails {CompanyDirector = true, LegalName = "Paddy Wood"};
         }
     }
 }

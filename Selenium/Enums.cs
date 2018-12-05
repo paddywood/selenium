@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Selenium
+﻿namespace Selenium
 {
     public enum BusinessType
     {
         LimitedCompany,
         TrustOrSociety,
         SoleTrader,
+        Partnership,
+        Other
     }
 }
