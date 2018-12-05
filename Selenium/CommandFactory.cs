@@ -18,7 +18,7 @@
             {
                 BusinessName = "Paddy Business",
                 BusinessAddress = "Business Address",
-                BusinessType = BusinessType.LimitedCompany,
+                BusinessType = BusinessType.LimitedCompanyButton,
                 MonthlySpend = 10000
             };
         }
@@ -33,7 +33,14 @@
 
         public static CreditCheckDetails CreditCheckDetails()
         {
-            return new CreditCheckDetails {CompanyDirector = true, LegalName = "Paddy Wood"};
+            return new CreditCheckDetails
+            {
+                CompanyDirector = true,
+                LegalName = "___Approve",
+                Dob = "15041966",
+                LicenseVersion = "111",
+                LicenceNumber = "11111111"
+            };
         }
     }
 }

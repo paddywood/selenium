@@ -2,7 +2,7 @@
 {
     public enum BusinessType
     {
-        LimitedCompany,
+        LimitedCompanyButton,
         TrustOrSociety,
         SoleTrader,
         Partnership,

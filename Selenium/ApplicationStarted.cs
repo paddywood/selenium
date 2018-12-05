@@ -18,16 +18,7 @@ namespace Selenium
 
             Application.BusinessDetails = businessDetails;
 
-            if (businessDetails.BusinessType == BusinessType.LimitedCompany)
-                WebDriver.FindElementByName("LimitedCompanyButton").Click();
-            else if (businessDetails.BusinessType == BusinessType.SoleTrader)
-                WebDriver.FindElementByName("SoleTraderButton").Click();
-            else if (businessDetails.BusinessType == BusinessType.Partnership)
-                WebDriver.FindElementByName("PartnershipButton").Click();
-            else if (businessDetails.BusinessType == BusinessType.TrustOrSociety)
-                WebDriver.FindElementByName("TrustOrSocietyButton").Click();
-            else
-                WebDriver.FindElementByName("OtherBusinessTypeButton").Click();
+            WebDriver.FindElementByName(businessDetails.BusinessType.ToString()).Click();
 
             WebDriver.FindElementByName("BusinessNameSearch")
                 .SendKeys(businessDetails.BusinessName);
