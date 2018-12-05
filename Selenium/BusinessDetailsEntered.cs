@@ -18,9 +18,9 @@ namespace Selenium
 
             Application.OfferDetails = offer;
 
-            WebDriver.FindElementByCssSelector("#promo-code > div > div:nth-child(3) > div > button", sleepyTime: 2000).Click();
+            WebDriver.FindElementByCssSelector("#promo-code > div > div:nth-child(3) > div > button", sleepyTime: 1000).Click();
 
-            WebDriver.FindElementByName("NoPointTypeButton", sleepyTime: 2000).Click();
+            WebDriver.FindElementByName("NoPointTypeButton", sleepyTime: 1000).Click();
 
             WebDriver.FindElementByCssSelector("#loyalty > div.flex.no-grow > div > div > button").Click();
 

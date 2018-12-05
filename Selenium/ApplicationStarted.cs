@@ -46,7 +46,7 @@ namespace Selenium
             //WebDriver.FindElementByName("MonthlyFuelAmount").Clear();
             //WebDriver.FindElementByName("MonthlyFuelAmount").SendKeys(businessDetails.MonthlySpend.GetValueOrDefault(100).ToString());
 
-            WebDriver.FindElementByCssSelector("#fuel-amount > div.mobile-full-page-wrapper > div > div > div > div.layout.justify-center > div > button", sleepyTime: 2000).Click();
+            WebDriver.FindElementByCssSelector("#fuel-amount > div.mobile-full-page-wrapper > div > div > div > div.layout.justify-center > div > button", sleepyTime: 1000).Click();
 
             return new BusinessDetailsEntered(Application, WebDriver);
         }
