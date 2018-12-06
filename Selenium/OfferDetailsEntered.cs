@@ -27,10 +27,7 @@ namespace Selenium
 
             WebDriver.FindElementByName(Application.CreditCheckDetails.Gender.ToString(), sleepyTime: 500).Click();
 
-            foreach (var c in Application.CreditCheckDetails.Dob)
-            {
-                WebDriver.FindElementByName("DateOfBirth").SendKeys(c.ToString());
-            }
+            WebDriver.FindElementByName("DateOfBirth").SendKeysOneByOne(Application.CreditCheckDetails.Dob);
 
             WebDriver.FindElementByCssSelector("#dob > div > div > div.flex.no-grow > div > div > button", sleepyTime:500).Click();
 

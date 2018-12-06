@@ -7,6 +7,14 @@ namespace Selenium
 {
     public static class WebDriverExtensions
     {
+        public static void SendKeysOneByOne(this IWebElement webElement, string stringToSend)
+        {
+            foreach(var c in stringToSend)
+            {
+                webElement.SendKeys(c.ToString());
+            }
+        }
+
         public static IWebElement FindElementById(this IWebDriver webDriver, string id, int? timeout = null, int? sleepyTime = null)
         {
             return FindElement(d => d.FindElement(By.Id(id)), webDriver, timeout, sleepyTime);
