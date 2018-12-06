@@ -9,11 +9,11 @@ namespace Selenium
         {
         }
 
-        [Fact]
-        //[Theory]
-        //[InlineData("Chrome")]
+        //[Fact]
+        [Theory]
+        [InlineData("Chrome")]
         //[InlineData("Edge")]
-        public void Create_a_standard_approved_application()
+        public void Create_a_standard_approved_application(string browser)
         {
             WebDriver.Url = "http://localhost:4001/";
 
@@ -21,7 +21,8 @@ namespace Selenium
                 .An_application_has_been_started()
                 .The_business_details_have_been_entered()
                 .The_offer_details_have_been_entered()
-                .The_credit_check_details_have_been_entered()
+                .The_credit_check_details_have_been_entered(c => c.LegalName = "___Refer")
+                //.Save_and_share();
                 .The_final_details_have_been_entered();
 
             Thread.Sleep(5000);

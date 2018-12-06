@@ -12,23 +12,23 @@ namespace Selenium
 
         public BusinessDetailsEntered The_business_details_have_been_entered(Action<BusinessDetails> command = null)
         {
-            var businessDetails = CommandFactory.BusinessDetails();
+            Application.BusinessDetails = CommandFactory.BusinessDetails();
 
-            command?.Invoke(businessDetails);
+            command?.Invoke(Application.BusinessDetails);
 
-            Application.BusinessDetails = businessDetails;
+            Application.BusinessDetails = Application.BusinessDetails;
 
-            WebDriver.FindElementByName(businessDetails.BusinessType.ToString()).Click();
+            WebDriver.FindElementByName(Application.BusinessDetails.BusinessType.ToString()).Click();
 
             WebDriver.FindElementByName("BusinessNameSearch")
-                .SendKeys(businessDetails.BusinessName);
+                .SendKeys(Application.BusinessDetails.BusinessName);
 
             WebDriver.FindElementByLinkText("Enter manually").Click();
 
             WebDriver.FindElementByCssSelector("#business-name > div > div > div:nth-child(3) > div > div > button").Click();
 
             WebDriver.FindElementByName("BusinessAddressSearch")
-                .SendKeys(businessDetails.BusinessAddress);
+                .SendKeys(Application.BusinessDetails.BusinessAddress);
 
             WebDriver.FindElementByCssSelector("#app > div.v-menu__content.theme--light.menuable__content__active.v-autocomplete__content.autocomplete-content > div > div > div.no-data-tile > div > p > a").Click();
 

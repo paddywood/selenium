@@ -30,5 +30,14 @@ namespace Selenium
             return new ApplicationStarted(Application, WebDriver);
 
         }
+
+        public void Save_and_share()
+        {
+            WebDriver.FindElementByCssSelector("#app > div.application--wrap > header > button", sleepyTime:500).Click();
+
+            WebDriver.FindElementByCssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > div.dialog-content > div > div > div > div.copy-text.copy-text > span:nth-child(2)").Click();
+
+            //WebDriver.FindElementByCssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > footer > button:nth-child(2)").Click();
+        }
     }
 }
