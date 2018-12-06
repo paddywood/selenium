@@ -41,11 +41,11 @@ namespace Selenium
 
             }
 
-            WebDriver.FindElementByName("HasBankSigningAuthority").Click();
+            WebDriver.FindElementByName("HasBankSigningAuthority", sleepyTime:1000).Click();
             WebDriver.FindElementByCssSelector("#bank-details > div > div > div:nth-child(3) > div:nth-child(1) > div > div > div.layout.pr-5 > div > div > div.v-input__slot > div").Click();
 
             //WebDriver.FindElements(By.)
-            WebDriver.FindElementByCssSelector("#bank-details > div > div > div:nth-child(3) > div:nth-child(2) > div > button", sleepyTime:200).Click();
+            WebDriver.FindElementByCssSelector("#bank-details > div > div > div:nth-child(3) > div:nth-child(2) > div > button", sleepyTime:400).Click();
 
 
         }

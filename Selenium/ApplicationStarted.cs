@@ -25,7 +25,7 @@ namespace Selenium
 
             WebDriver.FindElementByLinkText("Enter manually").Click();
 
-            WebDriver.FindElementByCssSelector("#business-name > div > div > div:nth-child(3) > div > div > button").Click();
+            WebDriver.FindElementByCssSelector("#business-name > div > div > div:nth-child(3) > div > div > button", sleepyTime:200).Click();
 
             WebDriver.FindElementByName("BusinessAddressSearch")
                 .SendKeys(Application.BusinessDetails.BusinessAddress);
