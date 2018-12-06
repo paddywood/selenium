@@ -8,5 +8,6 @@
         public BusinessDetails BusinessDetails { get; set; }
         public OfferDetails OfferDetails { get; set; }
         public CreditCheckDetails CreditCheckDetails { get; set; }
+        public FinalDetails FinalDetails { get; set; }
     }
 }

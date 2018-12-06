@@ -21,7 +21,8 @@ namespace Selenium
                 .An_application_has_been_started()
                 .The_business_details_have_been_entered()
                 .The_offer_details_have_been_entered()
-                .The_credit_check_details_have_been_entered();
+                .The_credit_check_details_have_been_entered()
+                .The_final_details_have_been_entered();
 
             Thread.Sleep(5000);
             //Assert.True(WebDriver.FindElementById("reerer").Enabled);

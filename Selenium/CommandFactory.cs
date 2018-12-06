@@ -31,6 +31,15 @@
             };
         }
 
+        public static FinalDetails FinalDetails()
+        {
+            return new FinalDetails
+            {
+                ContactNumber = "02203488378",
+                BankAccountName = "Paddy Bank",
+                BankAccountNumber = "3128000000000000"
+            };
+        }
         public static CreditCheckDetails CreditCheckDetails()
         {
             return new CreditCheckDetails
