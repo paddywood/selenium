@@ -23,7 +23,8 @@ namespace Selenium
                 .The_offer_details_have_been_entered()
                 .The_credit_check_details_have_been_entered(c => c.LegalName = "___Refer")
                 //.Save_and_share();
-                .The_final_details_have_been_entered();
+                .The_final_details_have_been_entered()
+                .The_application_has_been_submitted();
 
             Thread.Sleep(5000);
             //Assert.True(WebDriver.FindElementById("reerer").Enabled);

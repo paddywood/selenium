@@ -9,7 +9,7 @@ namespace Selenium
         {
         }
 
-        public void The_final_details_have_been_entered(Action<FinalDetails> setupCommand = null)
+        public ApplicationSubmitted The_final_details_have_been_entered(Action<FinalDetails> setupCommand = null)
         {
             Application.FinalDetails = CommandFactory.FinalDetails();
 
@@ -41,10 +41,7 @@ namespace Selenium
             WebDriver.FindElementByName("HasBankSigningAuthority", sleepyTime:1000).Click();
             WebDriver.FindElementByCssSelector("#bank-details > div > div > div:nth-child(3) > div:nth-child(1) > div > div > div.layout.pr-5 > div > div > div.v-input__slot > div").Click();
 
-            //WebDriver.FindElements(By.)
-            WebDriver.FindElementByCssSelector("#bank-details > div > div > div:nth-child(3) > div:nth-child(2) > div > button", sleepyTime:400).Click();
-
-
+            return new ApplicationSubmitted(Application, WebDriver);
         }
     }
 }
