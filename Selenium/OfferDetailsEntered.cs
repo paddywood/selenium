@@ -39,7 +39,7 @@ namespace Selenium
 
             WebDriver.FindElementByName("AgreeToCreditCheck", sleepyTime: 300).Click();
 
-            WebDriver.FindElementByCssSelector("#residential-address > div > div > div.flex.mt-5 > div:nth-child(2) > div > button", sleepyTime: 1000).Click();
+            WebDriver.FindElementByCssSelector("#residential-address > div > div > div.flex.mt-5 > div:nth-child(2) > div > button", sleepyTime: 1500).Click();
 
             return new CreditCheckDetailsEntered(Application, WebDriver);
         }
